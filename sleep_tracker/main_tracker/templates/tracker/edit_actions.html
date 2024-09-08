@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block header %}
+  {{title}}
+{% endblock %}
+{% block content %}
+<h1 class="border-top text-center py-3"> {{ title }} </h1>
+  <div class="container py-5">  
+    {% for action in action_list %}
+      <p>
+        <dt class="col-sm-3">{{ action.action_ru_name }} {{ action.date_time }}</dt>
+        <a class="btn btn-dark btn-sm" href="{% url 'main_tracker:edit_actions_edit' action.id %}">Редактировать</a>
+        <a class="btn btn-dark btn-sm" href="{% url 'main_tracker:edit_actions_delete' action.id %}">Удалить</a>
+      <p>
+      {% endfor %}
+  </div>
+  {% endblock %}

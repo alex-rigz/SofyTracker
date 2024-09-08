@@ -1,0 +1,20 @@
+{% load static %}
+  <nav class="navbar navbar-dark bg-dark" color = $gray-600>
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'main_tracker:index' %}">
+        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span style="color:red">Sofy</span>Tracker
+      </a>
+      {# Добавлено в спринте #}
+
+      {% with request.resolver_match.view_name as view_name %}
+      <ul class="nav nav-pills navbar" style="nav-tabs-link-hover-border-color: gray-200;">
+
+          <a class="nav-link nav-link-color red {% if view_name  == 'graph:graph' %}active{% endif %}" href="{% url 'graph:graph' %}">Графики</a>
+          <a class="nav-link {% if view_name  == 'main_tracker:settings_main' %}active{% endif %}" href="{% url 'main_tracker:settings_main' %}"><img src="{% static 'img/set.png' %}" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+        </li>
+        {% endwith %} 
+      </ul>
+      {# Конец добавленого в спринте #}
+    </div>
+  </nav>

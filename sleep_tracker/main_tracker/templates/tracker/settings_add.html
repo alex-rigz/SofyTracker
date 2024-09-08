@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block header %}
+  {{title}}
+{% endblock %}
+{% block content %}
+<h4 class="border-top text-center py-3"> Введите название нового действия </h4>
+    <div class="mb-3">
+      <form class="mb-3" action="{% url 'main_tracker:settings_add' %}" method="post">
+              {% csrf_token %}
+              {{ form }}
+              <input class="btn btn-dark btn-sm" type="submit" value="Подтвердить">
+      </form>
+    </div>  
+  </div>
+  {% endblock %}

@@ -1,0 +1,31 @@
+/* Устанавливаем 100% высоту для html и body */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Оболочка (wrapper) занимает всю высоту экрана */
+.wrapper {
+    min-height: 100vh; /* Минимальная высота 100% от экрана */
+    display: flex;
+    flex-direction: column; /* Flexbox для вертикального выравнивания */
+}
+
+/* Контент растягивается на оставшееся пространство */
+.content {
+    flex-grow: 1; /* Растягивается на оставшееся пространство */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Футер зафиксирован внизу при недостатке контента */
+.footer {
+    background-color: #343a40; /* Цвет фона */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto; /* Перемещает футер в самый низ */
+}
+body {
+    background-color: #6c757d; /* Яркий цвет фона, чтобы легко заметить */
+}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block header %}
+  {{title}}
+{% endblock %}
+{% block content %}
+<h1 class="border-top text-center py-3"> {{ title }} </h1>
+  <div class="container py-10">   
+    <a class="btn btn-dark" href="{% url 'main_tracker:settings_add' %}">Добавить новое действие</a>
+  </div>
+  <div class="container py-5">  
+    {% for button in buttons_list %}
+      <p>
+        <dt class="col-sm-3">{{ button.action_ru_name }}</dt>
+        <a class="btn btn-dark btn-sm" href="{% url 'main_tracker:settings_edit' button.id %}">Редактировать</a>
+        <a class="btn btn-dark btn-sm" href="{% url 'main_tracker:settings_delete' button.id %}">Удалить</a>
+      <p>
+      {% endfor %}
+  </div>
+  {% endblock %}

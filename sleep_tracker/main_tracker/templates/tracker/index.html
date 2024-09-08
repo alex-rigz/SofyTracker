@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block header %}
+  {{title}}
+{% endblock %}
+{% block content %}
+<h1 class="border-top text-center py-3"> {{ title }} </h1>
+  <div class="container py-5">   
+      <fieldset>
+          {% for button in button_list %}
+            <form method="POST" action="{% url 'main_tracker:trackview'%}">
+              {% csrf_token %}
+              <div class="d-grid gap-2">
+              <input type='hidden' name='name' value="{{ button.button_text }}">
+              <input type='hidden' name='name_ru' value="{{ button.action_ru_name }}">
+              <button class="btn btn-dark" type="submit"> {{ button.action_ru_name }} </button>
+              </div>
+            </form>
+          {% endfor %}
+      </fieldset>
+  <div class="container py-5">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-outline-dark btn-sm" href="{% url 'main_tracker:edit_actions' %}">Редактировать список действий</a>
+    </div>
+    <p></p>
+    <a >Фильтр:</a>
+    <a class="btn btn-outline-dark btn-sm" href="{% url 'main_tracker:index' %}">Сбросить</a>
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    {% for button in button_list %}
+      <a 
+            type="button" 
+            class="btn btn-outline-dark btn-sm {% if button.button_text == button_action %}active{% endif %}" 
+            href="{% url 'main_tracker:index_filter' button.button_text %}">
+            {{ button.action_ru_name }}
+      </a>
+    {% endfor %}
+    </div>
+  </div>
+    {% for action in page_obj %}
+      {% include 'includes/action_list.html' %}
+    {% endfor %}
+    {% include 'includes/paginator.html' %}
+  </div>
+  {% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block header %}
+  {{title}}
+{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Этот контейнер будет использоваться для горизонтальной прокрутки на мобильных устройствах -->
+        <div class="d-flex flex-row flex-nowrap overflow-auto">
+            {% for day in deltas_data %}
+                <div class="card text-white bg-dark m-2" style="min-width: 12rem;"> <!-- min-width для обеспечения минимальной ширины карточек -->
+                    <div class="card-header">{{ day.Day }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Всего часов сна</h5>
+                        <p class="card-text">{{ day.Summ }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+    {% autoescape off %}
+        {{ plot_div }}
+    {% endautoescape %}
+{% endblock content %}

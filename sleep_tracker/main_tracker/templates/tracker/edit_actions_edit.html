@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block header %}
+  {{title}}
+{% endblock %}
+{% block content %}
+<h3 class="border-top text-center py-3"> Редактировать название "{{ action.action_ru_name }}" </h3>
+    <div class="mb-3">
+      <form class="mb-3" action="{% url 'main_tracker:edit_actions_edit' action.id%}" method="post">
+              {% csrf_token %}
+              {{ form }}
+              <input class="btn btn-dark btn-sm" type="submit" value="Подтвердить">
+      </form>
+    </div>  
+  </div>
+  {% endblock %}
