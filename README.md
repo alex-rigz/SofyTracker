@@ -11,9 +11,13 @@
 Поддерживается адаптивная верстка
 
 Главный экран:
+
+
 <img width="327" alt="image" src="https://github.com/user-attachments/assets/31dc5b2c-5011-4214-8b38-8da68dece1e7">
 
 Настраиваемый график сна: 
+
+
 <img width="330" alt="image" src="https://github.com/user-attachments/assets/1b4f6f1a-6594-4ad7-984d-5964ebc3db1e">
 
 ## Установка:
