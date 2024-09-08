@@ -1,4 +1,6 @@
-# SofyTracker
+
+# SofyTracker <img width="30" alt="logo" src="https://github.com/user-attachments/assets/2eab569c-eed5-448e-ae98-dc0f15f76595">
+
 Трекер для малыша - учитываем все важные события
 
 Простой трекер важных событий. 
